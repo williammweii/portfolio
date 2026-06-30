@@ -45,12 +45,17 @@ img { max-width: 100%; display: block; }
   top: 0;
   z-index: 10;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 1.25rem var(--gap);
-  background: rgba(10, 10, 10, 0.92);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--line);
+  gap: 3.5rem;
+  padding: 1.75rem var(--gap);
+  background: linear-gradient(to bottom, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0) 100%);
+  pointer-events: none;
+}
+
+.site-header .mark,
+.site-header .site-nav {
+  pointer-events: auto;
 }
 
 .site-header .mark {
@@ -67,7 +72,7 @@ img { max-width: 100%; display: block; }
 
 .site-nav {
   display: flex;
-  gap: 1.75rem;
+  gap: 2rem;
   font-size: 0.8rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -80,19 +85,25 @@ img { max-width: 100%; display: block; }
   transition: color 0.2s ease;
 }
 
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
 .site-nav a:hover,
 .site-nav a.active {
   color: var(--ink);
 }
 
+.site-nav a:hover::after,
 .site-nav a.active::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
   width: 100%;
-  height: 1px;
-  background: var(--accent);
 }
 
 /* ===== Waypoint marker (signature element) ===== */
@@ -313,10 +324,151 @@ img { max-width: 100%; display: block; }
   color: #555;
 }
 
-/* ===== Showreel ===== */
+/* ===== Hero Intro (reference-style) ===== */
+.hero-intro {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 8rem var(--gap) 4rem;
+  gap: var(--gap);
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .hero-intro {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 7rem;
+  }
+}
+
+.hero-intro .hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.hero-intro .hero-name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.hero-intro .hero-role {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.hero-intro .hero-role span {
+  color: var(--accent);
+}
+
+.hero-intro .hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: fit-content;
+  padding: 0.85rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.hero-intro .hero-cta:hover {
+  border-color: var(--accent);
+  background: rgba(25, 230, 227, 0.06);
+  transform: translateX(4px);
+}
+
+.hero-intro .hero-cta .arrow-ring {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: var(--accent);
+  transition: transform 0.25s ease;
+}
+
+.hero-intro .hero-cta:hover .arrow-ring {
+  transform: rotate(45deg);
+}
+
+.hero-intro .hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2.5rem;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .hero-intro .hero-right {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.hero-intro .hero-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.hero-intro .hero-stat {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.hero-intro .hero-coords {
+  font-size: 0.75rem;
+  color: #555;
+  letter-spacing: 0.04em;
+}
+
+.hero-intro .hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.4;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ===== Parallax layers ===== */
+.parallax-layer {
+  will-change: transform;
+}
+
+
 .showreel {
   margin: 0 var(--gap);
-  margin-top: 1.5rem;
+  margin-top: 0;
   aspect-ratio: 16 / 9;
   background: var(--bg-raised);
   border: 1px solid var(--line);
@@ -329,8 +481,13 @@ img { max-width: 100%; display: block; }
 
 .showreel video {
   width: 100%;
-  height: 100%;
+  height: 120%;
   object-fit: cover;
+  will-change: transform;
+}
+
+.showreel .reel-placeholder {
+  will-change: transform;
 }
 
 .showreel .reel-placeholder {
@@ -407,11 +564,22 @@ img { max-width: 100%; display: block; }
   position: relative;
   display: block;
   overflow: hidden;
+  transition: transform 0.35s ease;
+}
+
+.featured-card:hover {
+  transform: scale(1.015);
+  z-index: 2;
 }
 
 .featured-card .placeholder-art {
   width: 100%;
   height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.featured-card:hover .placeholder-art {
+  transform: scale(1.06);
 }
 
 .featured-card .card-caption {
@@ -497,6 +665,15 @@ img { max-width: 100%; display: block; }
 .project-cover {
   margin: 1.5rem var(--gap) 0;
   aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-cover .placeholder-art,
+.project-cover img {
+  will-change: transform;
+  height: 120% !important;
+  margin-top: -10%;
 }
 
 .project-body {

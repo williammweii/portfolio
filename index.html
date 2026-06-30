@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>William — Portfolio</title>
+<title>William Wei — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -15,8 +15,7 @@
   <nav class="site-nav">
     <a href="index.html" class="active">Home</a>
     <a href="projects.html">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact-footer">Contact</a>
+    <a href="about.html">About</a>
   </nav>
 </header>
 
@@ -25,11 +24,37 @@
   <!-- Once you have a video file, replace this whole block with:
   <video src="media/showreel.mp4" controls poster="media/showreel-poster.jpg"></video>
   Or for YouTube/Vimeo, swap in an <iframe> embed instead. -->
-  <div class="reel-placeholder">
+  <div class="reel-placeholder" data-parallax>
     <div class="play-ring">▶</div>
     <span class="label">Showreel — add video file or embed</span>
   </div>
 </div>
+
+<!-- ===== Hero Intro ===== -->
+<section class="hero-intro">
+  <div class="hero-bg-grid"></div>
+
+  <div class="hero-left">
+    <div>
+      <div class="hero-role">Environment &amp; Concept Artist <span>— Jakarta</span></div>
+      <h1 class="hero-name">William<br>Wei</h1>
+    </div>
+    <a href="about.html" class="hero-cta">
+      More about me
+      <span class="arrow-ring">→</span>
+    </a>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-meta-list">
+      <span>Worldbuilder</span>
+      <span>Generalist Artist</span>
+      <span>2 Years Professional</span>
+    </div>
+    <div class="hero-stat">01 — 06</div>
+    <div class="hero-coords">JAKARTA, ID — EST. 2024</div>
+  </div>
+</section>
 
 <!-- ===== Featured Projects ===== -->
 <div class="section-head">
@@ -74,24 +99,6 @@
 
 </div>
 
-<!-- ===== About ===== -->
-<section class="about-block" id="about">
-  <div class="eyebrow">About</div>
-  <div>
-    <p>
-      Hello, I'm William Wei, a Jakarta-based artist working across environment art, concept art, illustration, 3D, and motion.
-      My work is driven by worldbuilding. I love exploring and creating stories, building the characters and the environments.
-      My thirst in exploring leads me into various art styles and mediums, hence fitting the role of a generalist.
-    </p>
-    <p>
-      Two years into a professional generalist career, I'm narrowing toward environment and concept work
-      while keeping the broader skillset visible. While I am confident in my skills as a generalist, I am more well-known
-      amongst my peers for my leadership skills, taking art director and producer roles since university days, and being
-      trusted as project leads throughout my professional career.
-    </p>
-  </div>
-</section>
-
 <footer class="site-footer" id="contact-footer">
   <div class="contact-links">
     <a href="mailto:youremail@example.com">Email</a>
@@ -102,5 +109,6 @@
   <div class="copy">© 2026 William Wei. Built for portfolio use.</div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
