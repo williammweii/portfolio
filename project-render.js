@@ -48,6 +48,26 @@
     )
     .join('');
 
+  // Cover can be a video embed (YouTube/Vimeo iframe URL) or a static image.
+  const coverHTML = project.coverVideo
+    ? `<iframe src="${project.coverVideo}" title="${project.name}"
+         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
+    : `<img src="${project.cover}" alt="${project.name} cover"
+         onerror="this.parentElement.innerHTML='<div class=\\'placeholder-art\\' style=\\'height:100%;\\'><span class=\\'slot-no\\'>COVER</span><span>Add cover image</span></div>'">`;
+
+  // Optional external embed (e.g. a Behance breakdown) shown after the gallery.
+  const embedHTML = project.externalEmbed
+    ? `
+    <div class="project-embed-block">
+      <h3 style="margin: 0 var(--gap) 1rem;">${project.externalEmbedLabel || 'Full Breakdown'}</h3>
+      <div class="project-embed">
+        <iframe src="${project.externalEmbed}" height="316" width="404" allowfullscreen loading="lazy"
+          frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>`
+    : '';
+
   container.innerHTML = `
     <div class="project-hero" style="margin-top: 4.5rem;">
       <div class="waypoint" style="margin: 0; padding-top: 2.5rem;">
@@ -64,8 +84,7 @@
     </div>
 
     <div class="project-cover">
-      <img src="${project.cover}" alt="${project.name} cover"
-           onerror="this.parentElement.innerHTML='<div class=\\'placeholder-art\\' style=\\'height:100%;\\'><span class=\\'slot-no\\'>COVER</span><span>Add cover image</span></div>'">
+      ${coverHTML}
     </div>
 
     <div class="project-body">
@@ -79,6 +98,8 @@
     <div class="project-gallery">
       ${galleryHTML}
     </div>
+
+    ${embedHTML}
 
     <div class="project-nav">
       <a href="project.html?id=${prevProject.id}">← ${prevProject.name}</a>

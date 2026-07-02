@@ -83,6 +83,40 @@ Just add or remove lines inside the `gallery: [ ... ]` brackets for that project
 - Every block except the very last one needs a comma `,` right after its closing `}`.
 - If a project page shows broken images, double check the file path in `projects-data.js` exactly matches the real filename (capitalization matters — `Cover.jpg` and `cover.jpg` are different files to a web browser).
 
+## Optional: using a video instead of an image at the top of a project
+
+If a project's main visual is a video (like a showreel clip or animation), you can embed
+one from YouTube or Vimeo instead of a static cover image. Add a `coverVideo` field to
+that project's block:
+
+```js
+coverVideo: "https://www.youtube.com/embed/VIDEO_ID_HERE",
+```
+
+How to get this URL from YouTube: open the video, click Share → Embed, and copy just the
+`src="..."` link from inside the `<iframe>` code — that's the URL you paste in.
+
+Keep the `cover:` field too, even when using `coverVideo` — it's still used as the
+thumbnail image on the homepage and the all-projects grid (video thumbnails can't be
+generated automatically everywhere). For YouTube specifically, you can just use:
+```
+cover: "https://img.youtube.com/vi/VIDEO_ID_HERE/maxresdefault.jpg"
+```
+which pulls YouTube's own auto-generated thumbnail — no need to save or upload anything.
+
+## Optional: embedding a Behance (or other) breakdown
+
+If you have a more detailed breakdown elsewhere (like a Behance case study) that you want
+linked at the bottom of the project page, add:
+
+```js
+externalEmbed: "https://www.behance.net/embed/project/XXXXXXX?ilo0=1",
+externalEmbedLabel: "Full Breakdown on Behance",
+```
+
+Get the embed URL the same way — on Behance, click the project's Share/Embed option and
+copy the `src="..."` link. Leave both fields out entirely if a project doesn't have one.
+
 ## How the pieces fit together
 
 - `projects-data.js` — your project info (the only file you edit regularly)
