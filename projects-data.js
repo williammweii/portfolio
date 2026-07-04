@@ -75,10 +75,12 @@ const PROJECTS = [
     process: "Process notes here.",
     challenges: "Challenges notes here.",
     gallery: [
-      "media/projects/03/gallery-1.jpg",
-      "media/projects/03/gallery-2.jpg",
-      "media/projects/03/gallery-3.jpg",
-      "media/projects/03/gallery-4.jpg"
+      "media/projects/03/pseudo styleframe 1.jpg",
+      "media/projects/03/pseudo styleframe 2.jpg",
+      "media/projects/03/pseudo styleframe 3.jpg",
+      "media/projects/03/pseudo styleframe 4.jpg",
+      "media/projects/03/pseudo styleframe 5.jpg",
+      "media/projects/03/pseudo styleframe 6.jpg"
     ],
     externalEmbed: "https://www.behance.net/embed/project/243513993?ilo0=1",
     externalEmbedLabel: "Full Breakdown on Behance"
