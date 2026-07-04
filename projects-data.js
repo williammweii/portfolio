@@ -63,13 +63,14 @@ const PROJECTS = [
   },
   {
     id: "03",
-    name: "Project Name",
-    role: "3D Modelling",
-    tagline: "one-line tagline goes here",
-    tools: "Blender, Substance Painter",
-    year: "2026",
-    type: "Personal / Client / Studio",
-    cover: "media/projects/03/cover.jpg",
+    name: "Pseudo Immortals",
+    role: "3D Modelling, Sculpting, Animation, Texturing",
+    tagline: "teaser for book launch",
+    tools: "Blender, Substance Painter, Zbrush, Photoshop, After Effects",
+    year: "May 2025",
+    type: "Studio - Ape Plus Studio",
+    cover: "https://img.youtube.com/vi/fwPZHaSMqd4/maxresdefault.jpg",
+    coverVideo: "https://www.youtube.com/embed/fwPZHaSMqd4",
     overview: "Short overview paragraph here.",
     process: "Process notes here.",
     challenges: "Challenges notes here.",
@@ -78,7 +79,9 @@ const PROJECTS = [
       "media/projects/03/gallery-2.jpg",
       "media/projects/03/gallery-3.jpg",
       "media/projects/03/gallery-4.jpg"
-    ]
+    ],
+    externalEmbed: "https://www.behance.net/embed/project/243513993?ilo0=1",
+    externalEmbedLabel: "Full Breakdown on Behance"
   }
   // Add projects 04 through 15 the same way — copy a block above this line,
   // paste it here, give it a new id, and fill in your details.
