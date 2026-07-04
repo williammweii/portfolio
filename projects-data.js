@@ -41,21 +41,24 @@ const PROJECTS = [
   },
   {
     id: "02",
-    name: "Project Name",
-    role: "Concept Art",
-    tagline: "one-line tagline goes here",
-    tools: "Photoshop, Procreate",
-    year: "2026",
-    type: "Personal / Client / Studio",
+    name: "NBA 2K MOBILE - RUN THE COURT",
+    role: "Concept Art, Storyboard, Motion Graphics, Compositing",
+    tagline: "from playing the game to creating an ad for it",
+    tools: "Photoshop, After Effects, Blender, Premiere Pro",
+    year: "2025",
+    type: "Studio - Ape Plus Studio",
     cover: "media/projects/02/cover.jpg",
+    coverVideo: "https://www.youtube.com/embed/zFt6nfCnKBA",
     overview: "Short overview paragraph here.",
     process: "Process notes here.",
     challenges: "Challenges notes here.",
     gallery: [
-      "media/projects/02/gallery-1.jpg",
-      "media/projects/02/gallery-2.jpg",
-      "media/projects/02/gallery-3.jpg",
-      "media/projects/02/gallery-4.jpg"
+      "media/projects/02/storyboard 1.jpg",
+      "media/projects/02/storyboard 2.jpg",
+      "media/projects/02/nba wip 1.jpg",
+      "media/projects/02/nba wip 2.jpg",
+      "media/projects/02/nba wip 3.jpg",
+      "media/projects/02/nba wip.gif"
     ]
   },
   {
