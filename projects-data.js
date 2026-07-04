@@ -47,7 +47,7 @@ const PROJECTS = [
     tools: "Photoshop, After Effects, Blender, Premiere Pro",
     year: "2025",
     type: "Studio - Ape Plus Studio",
-    cover: "media/projects/02/cover.jpg",
+    cover: "https://img.youtube.com/vi/zFt6nfCnKBA/maxresdefault.jpg",
     coverVideo: "https://www.youtube.com/embed/zFt6nfCnKBA",
     overview: "Short overview paragraph here.",
     process: "Process notes here.",
