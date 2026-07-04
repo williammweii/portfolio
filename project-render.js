@@ -60,9 +60,9 @@
   const embedHTML = project.externalEmbed
     ? `
     <div class="project-embed-block">
-      <h3 style="margin: 0 var(--gap) 1rem;">${project.externalEmbedLabel || 'Full Breakdown'}</h3>
-      <div class="project-embed">
-        <iframe src="${project.externalEmbed}" height="316" width="404" allowfullscreen loading="lazy"
+      <h3 class="project-embed-label">${project.externalEmbedLabel || 'Full Breakdown'}</h3>
+      <div class="project-embed-wrap">
+        <iframe src="${project.externalEmbed}" allowfullscreen loading="lazy"
           frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
     </div>`

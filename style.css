@@ -7,8 +7,8 @@
   --line: #2a2a2a;
   --accent: #19E6E3;
 
-  --display: 'Space Grotesk', sans-serif;
-  --body: 'Space Grotesk', sans-serif;
+  --display: 'Space Grotesk', 'Arial Narrow', sans-serif;
+  --body: 'Inter', -apple-system, sans-serif;
 
   --gap: clamp(1rem, 3vw, 2.5rem);
 }
@@ -20,7 +20,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--display);
+  font-family: var(--body);
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -540,6 +540,7 @@ img { max-width: 100%; display: block; }
 .about-opening-block {
   padding: 3rem var(--gap);
   border-bottom: 1px solid var(--line);
+  max-width: 900px;
 }
 
 .about-opening {
@@ -555,32 +556,28 @@ img { max-width: 100%; display: block; }
 
 .about-grid-row {
   display: grid;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 160px 1fr;
   border-bottom: 1px solid var(--line);
   padding: 2.5rem var(--gap);
   align-items: start;
-  gap: 0 3rem;
 }
 
 @media (max-width: 700px) {
-  .about-grid-row {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-    padding: 1.75rem var(--gap);
-  }
+  .about-grid-row { grid-template-columns: 1fr; gap: 1rem; }
 }
 
 .about-label {
   font-family: var(--display);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--ink-dim);
   padding-top: 0.2rem;
 }
 
 .about-content p {
   color: var(--ink-dim);
+  max-width: 60ch;
   margin: 0 0 1.1rem;
 }
 .about-content p:last-child { margin-bottom: 0; }
@@ -665,33 +662,14 @@ img { max-width: 100%; display: block; }
 }
 .about-skill-tag:hover { border-color: var(--accent); color: var(--ink); }
 
-.about-skill-tag--dim {
-  opacity: 0.45;
-}
-
-.about-skill-tag--dim:hover {
-  opacity: 1;
-  border-color: var(--accent);
-  color: var(--ink);
-}
-
-.about-skills-note {
-  width: 100%;
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #444;
-  margin-top: 0.5rem;
-}
-
 .about-history-block {
   border-bottom: 1px solid var(--line);
 }
 
 .about-history-entry {
   display: grid;
-  grid-template-columns: 3rem 1fr 1fr 1.5fr;
-  gap: 0 3rem;
+  grid-template-columns: 3rem 200px 200px 1fr;
+  gap: 0 2rem;
   padding: 2.25rem var(--gap);
   border-bottom: 1px solid var(--line);
   align-items: start;
@@ -703,16 +681,9 @@ img { max-width: 100%; display: block; }
   .about-history-entry {
     grid-template-columns: 2.5rem 1fr;
     grid-template-rows: auto auto auto;
-    gap: 0.4rem 1rem;
   }
   .about-history-place,
   .about-history-desc { grid-column: 2; }
-}
-
-@media (max-width: 700px) {
-  .about-history-entry {
-    padding: 1.5rem var(--gap);
-  }
 }
 
 .about-history-num {
@@ -751,17 +722,17 @@ img { max-width: 100%; display: block; }
   color: var(--ink-dim);
   line-height: 1.6;
   margin: 0;
+  max-width: 50ch;
 }
 
 .about-closing-block {
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 0 3rem;
+  grid-template-columns: 160px 1fr;
   padding: 3.5rem var(--gap) 4rem;
   align-items: start;
 }
 @media (max-width: 700px) {
-  .about-closing-block { grid-template-columns: 1fr; gap: 1.25rem; }
+  .about-closing-block { grid-template-columns: 1fr; gap: 1rem; }
 }
 
 .about-closing-text {
@@ -782,16 +753,24 @@ img { max-width: 100%; display: block; }
 
 
 .showreel {
-  margin: 0 var(--gap);
+  margin: 0;
   margin-top: 0;
   aspect-ratio: 16 / 9;
   background: var(--bg-raised);
-  border: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.showreel iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
 
 .showreel video {
@@ -978,19 +957,13 @@ img { max-width: 100%; display: block; }
 }
 
 .project-cover {
-  margin: 1.5rem var(--gap) 0;
+  margin: 1.5rem 0 0;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   position: relative;
   background: var(--bg-raised);
-  border: 1px solid var(--line);
-}
-
-.project-cover .placeholder-art,
-.project-cover img {
-  will-change: transform;
-  height: 120% !important;
-  margin-top: -10%;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .project-cover iframe {
@@ -1000,24 +973,12 @@ img { max-width: 100%; display: block; }
   display: block;
 }
 
-/* ===== External embed block (e.g. Behance breakdown) ===== */
-.project-embed-block {
-  margin: 0 0 var(--gap);
-  padding-top: 1rem;
-}
-
-.project-embed {
-  margin: 0 var(--gap);
-  display: flex;
-  justify-content: center;
-  background: var(--bg-raised);
-  border: 1px solid var(--line);
-  padding: 1.5rem;
-}
-
-.project-embed iframe {
-  max-width: 100%;
-  border: 0;
+.project-cover .placeholder-art,
+.project-cover img {
+  width: 100%;
+  will-change: transform;
+  height: 120% !important;
+  margin-top: -10%;
 }
 
 .project-body {
@@ -1076,4 +1037,51 @@ img { max-width: 100%; display: block; }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ===== Featured card image fill ===== */
+.featured-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.featured-card:hover img {
+  transform: scale(1.06);
+}
+
+/* ===== Behance / external embed block ===== */
+.project-embed-block {
+  margin: 0 0 2rem;
+}
+
+.project-embed-label {
+  font-family: var(--display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-dim);
+  margin: 2rem var(--gap) 1rem;
+}
+
+.project-embed-wrap {
+  width: 100%;
+  background: var(--bg-raised);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  /* Behance embeds have a native aspect ratio of 404:316 ≈ 9:7.
+     We use padding-top trick to make it responsive at that ratio. */
+  position: relative;
+  padding-top: calc(316 / 404 * 100%);
+}
+
+.project-embed-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
